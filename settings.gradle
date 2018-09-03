@@ -1,0 +1,4 @@
+rootProject.name = 'skript-3'
+include 'base'
+include 'standalone'
+include 'spigot'
