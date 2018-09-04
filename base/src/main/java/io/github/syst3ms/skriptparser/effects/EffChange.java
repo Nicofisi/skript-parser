@@ -1,6 +1,6 @@
 package io.github.syst3ms.skriptparser.effects;
 
-import io.github.syst3ms.skriptparser.Main;
+import io.github.syst3ms.skriptparser.BaseSkriptAddon;
 import io.github.syst3ms.skriptparser.classes.ChangeMode;
 import io.github.syst3ms.skriptparser.event.TriggerContext;
 import io.github.syst3ms.skriptparser.lang.Effect;
@@ -32,7 +32,7 @@ public class EffChange extends Effect {
     private ChangeMode mode;
 
     static {
-        Main.getMainRegistration().addEffect(EffChange.class, PATTERNS.getPatterns());
+        BaseSkriptAddon.getRegistration().addEffect(EffChange.class, PATTERNS.getPatterns());
     }
 
     @Override
