@@ -5,6 +5,8 @@ buildscript {
 allprojects {
     apply plugin: 'java'
 
+    version '0.1-pre-alpha1'
+
     repositories {
         mavenCentral()
         jcenter()

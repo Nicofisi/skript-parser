@@ -1,0 +1,3 @@
+name: Skript-3
+main: io.github.syst3ms.skriptparser.spigot.SpigotSkript
+version: @version@

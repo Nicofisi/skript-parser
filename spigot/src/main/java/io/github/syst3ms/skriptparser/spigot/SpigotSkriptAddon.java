@@ -1,26 +1,26 @@
-package io.github.syst3ms.skriptparser.standalone;
+package io.github.syst3ms.skriptparser.spigot;
 
 import io.github.syst3ms.skriptparser.lang.Effect;
 import io.github.syst3ms.skriptparser.lang.Trigger;
 import io.github.syst3ms.skriptparser.registration.SkriptAddon;
 import io.github.syst3ms.skriptparser.registration.SkriptRegistration;
-import io.github.syst3ms.skriptparser.standalone.events.ScriptLoadContext;
+import io.github.syst3ms.skriptparser.spigot.events.SpigotScriptLoadContext;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StandaloneSkriptAddon extends SkriptAddon {
+public class SpigotSkriptAddon extends SkriptAddon {
 
-    private static final StandaloneSkriptAddon instance;
+    private static final SpigotSkriptAddon instance;
     private static SkriptRegistration registration;
 
-    private List<Trigger> mainTriggers = new ArrayList<>();
+    private List<Trigger> scriptLoadTriggers = new ArrayList<>();
 
     static {
-        instance = new StandaloneSkriptAddon();
+        instance = new SpigotSkriptAddon();
         registration = new SkriptRegistration(instance);
     }
 
-    public static StandaloneSkriptAddon getInstance() {
+    public static SpigotSkriptAddon getInstance() {
         return instance;
     }
 
@@ -30,13 +30,13 @@ public class StandaloneSkriptAddon extends SkriptAddon {
 
     @Override
     public void handleTrigger(Trigger trigger) {
-        mainTriggers.add(trigger);
+        scriptLoadTriggers.add(trigger);
     }
 
     @Override
     public void finishedLoading() {
-        for (Trigger trigger : mainTriggers) {
-            Effect.runAll(trigger, new ScriptLoadContext(Main.getArgs()));
+        for (Trigger trigger : scriptLoadTriggers) {
+            Effect.runAll(trigger, new SpigotScriptLoadContext());
         }
     }
 }
